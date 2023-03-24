@@ -1,0 +1,35 @@
+Q1 : https://www.codingninjas.com/codestudio/problems/triangle-judgement_2111954?topList=top-100-sql-problems&leftPanelTab=0
+
+ANS :
+
+select x,y,z,
+case 
+   when (x+y)>z and (y+z)>x and (x+z)>y
+   then 'Yes'
+   else 'No'
+   end as triangle
+   from triangle;
+
+
+Q2 : https://www.codingninjas.com/codestudio/problems/spotify-sessions_2246918?topList=top-100-sql-problems&leftPanelTab=0
+
+ANS :
+
+select distinct(p.session_id)
+from 
+Playback p join Ads a
+on p.customer_id = a.customer_id
+where a.timestamp not between p.start_time and p.end_time
+order by p.session_id asc;
+
+
+Q3 : https://www.codingninjas.com/codestudio/problems/product-s-worth-over-invoices_2188792?topList=top-100-sql-problems&leftPanelTab=0
+
+ANS :
+
+select p.name,sum(i.rest)as rest,sum(i.paid) as paid,
+sum(i.canceled) as canceled,sum(i.refunded)as refunded
+from Product p , Invoice i 
+where p.product_id = i.product_id
+group by p.name;
+
