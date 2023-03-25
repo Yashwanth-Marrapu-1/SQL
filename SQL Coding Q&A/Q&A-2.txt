@@ -2,7 +2,7 @@ Q1 : https://www.codingninjas.com/codestudio/problems/orders-with-maximum-quanti
 
 ANS :
 
-select DISTINCT(order_id) 
+select distinct(order_id) 
 from ordersdetails 
 where quantity > 
 (select avg(quantity) 
