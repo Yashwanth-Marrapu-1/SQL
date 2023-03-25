@@ -1,0 +1,19 @@
+Q1 : https://www.codingninjas.com/codestudio/problems/orders-with-maximum-quantity-above-average_2188776?topList=top-100-sql-problems&leftPanelTab=0
+
+ANS :
+
+select DISTINCT(order_id) 
+from ordersdetails 
+where quantity > 
+(select avg(quantity) 
+from ordersdetails);
+
+
+Q2 : https://www.codingninjas.com/codestudio/problems/second-highest-salary_2110760?topList=top-100-sql-problems&leftPanelTab=0
+
+ANS :
+
+select distinct(Salary) as salary
+from Employee
+order by salary desc
+LIMIT 1 OFFSET 1;
