@@ -1,0 +1,27 @@
+Q1 : https://www.codingninjas.com/codestudio/problems/classes-more-than-5-students_2105464?topList=top-100-sql-problems&leftPanelTab=0
+
+ANS :
+
+select class
+from courses
+group by class
+having count(*)>=5
+
+
+Q2 : https://www.codingninjas.com/codestudio/problems/not-boring-movies_2117047?topList=top-100-sql-problems&leftPanelTab=0
+
+ANS :
+
+select *
+from Cinema
+where description != 'boring' and id%2=1
+order by rating desc
+
+
+Q3 : https://www.codingninjas.com/codestudio/problems/shortest-distence-in-a-line_2105463?topList=top-100-sql-problems
+
+ANS :
+
+select min(p1.x-p2.x) as shortest
+from point p1 join point p2
+on p1.x > p2.x
