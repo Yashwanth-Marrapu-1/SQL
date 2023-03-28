@@ -1,0 +1,33 @@
+Q1 : https://www.codingninjas.com/codestudio/problems/biggest-single-number_2111955?topList=top-100-sql-problems&leftPanelTab=0
+
+ANS :
+
+select num
+from my_numbers
+group by num
+having count(*)=1
+order by num desc limit 1;
+
+
+Q2 : https://www.codingninjas.com/codestudio/problems/the-latest-login-in-2020_2188789?topList=top-100-sql-problems&leftPanelTab=0
+
+ANS :
+
+select user_id,max(time_stamp) as last_stamp
+from Logins
+where extract(year from time_stamp) = 2020
+group by user_id;
+
+
+Q3 : https://www.codingninjas.com/codestudio/problems/number-of-comments-per-post_2117115?topList=top-100-sql-problems&leftPanelTab=0
+
+ANS :
+
+select distinct s1.sub_id as post_id ,
+count(distinct s2.sub_id) as number_of_comments  
+from Submissions s1 left join Submissions s2 
+on s1.sub_id =s2.parent_id
+where s1.parent_id is null
+group by s1.sub_id;
+
+
