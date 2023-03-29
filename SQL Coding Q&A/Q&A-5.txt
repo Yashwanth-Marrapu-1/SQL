@@ -1,0 +1,35 @@
+Q1 : https://www.codingninjas.com/codestudio/problems/number-of-calls-between-two-persons_2181135?topList=top-100-sql-problems&leftPanelTab=0
+
+ANS : 
+
+select from_id as person1,to_id as person2,count(*) AS call_count,
+sum(duration) as total_duration
+from(
+select from_id,to_id,duration
+from Calls
+union all
+select to_id,from_id,duration
+from Calls
+) as sub
+where from_id < to_id
+group by from_id,to_id
+;
+
+
+Q2 : https://www.codingninjas.com/codestudio/problems/recyclable-and-low-fat-products_2181186?topList=top-100-sql-problems&leftPanelTab=0
+
+ANS :
+
+select product_id
+from Products
+where low_fats = 'Y' AND recyclable = 'Y';
+
+
+Q3 : https://www.codingninjas.com/codestudio/problems/running-total-for-different-genders_2188769?topList=top-100-sql-problems&leftPanelTab=0
+
+ANS :
+
+Select gender,day, Sum(score_points) 
+Over (Partition By gender 
+Order by (gender,day) asc ) As total
+From Scores;
