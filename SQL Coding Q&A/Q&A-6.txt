@@ -1,0 +1,29 @@
+Q1 : https://www.codingninjas.com/codestudio/problems/customers-who-never-order_2111946?topList=top-100-sql-problems&leftPanelTab=0
+
+ANS :
+
+select NameCust as "Customers"
+from Customers
+where id not in
+(select CustomerId from orders);
+
+
+Q2 : https://www.codingninjas.com/codestudio/problems/sellers-with-no-sales_2188790?topList=top-100-sql-problems&leftPanelTab=0
+
+ANS :
+
+select seller_name 
+from seller
+where seller_id
+not in (select seller_id
+       from orders 
+       where extract(year from sale_date)= 2020);
+
+
+Q3 : https://www.codingninjas.com/codestudio/problems/patients-with-a-condition_2196163?topList=top-100-sql-problems&leftPanelTab=0
+
+ANS :
+
+SELECT * FROM 
+patients
+WHERE conditions like '%DIAB1%';
