@@ -1,0 +1,27 @@
+Q1 : https://www.codingninjas.com/codestudio/problems/queries-quality-and-percentage_2117108?topList=top-100-sql-problems&leftPanelTab=0
+
+ANS :
+
+select query_name, 
+round(avg(rating/position),2) quality
+from Queries 
+group by query_name;
+
+
+Q2 : https://www.codingninjas.com/codestudio/problems/fix-names-in-a-table_2188793?topList=top-100-sql-problems&leftPanelTab=0
+
+ANS :
+
+select user_id,
+INITCAP(name) as name
+from Users;
+
+
+Q3 : https://www.codingninjas.com/codestudio/problems/testingg-sql_1755903?topList=top-100-sql-problems&leftPanelTab=0
+
+ANS :
+
+select Title, Rating 
+from IMDB INNER JOIN genre 
+on IMDB.Movie_id = genre.Movie_id 
+where genre like 'C%' and  Title like '%2014%' and Budget>40000000;
