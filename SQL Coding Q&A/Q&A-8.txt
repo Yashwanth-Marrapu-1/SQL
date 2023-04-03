@@ -1,0 +1,33 @@
+Q1 : https://www.codingninjas.com/codestudio/problems/combine-two-tables_2110759?topList=top-100-sql-problems&leftPanelTab=0
+
+ANS :
+
+select FirstName,LastName,City,State
+from Person p left join Address a 
+on p.PersonId = a.PersonId;
+
+Q2 : https://www.codingninjas.com/codestudio/problems/count-salary-categories_2188778?topList=top-100-sql-problems&leftPanelTab=0
+
+ANS :
+
+select 'Low Salary' as category,count(income) as accounts_count
+from Accounts
+where income<20000
+union all
+select 'Average Salary' as category,count(income) as accounts_count
+from Accounts
+where income>=20000 and income<=50000
+union all
+select 'High Salary' as category,count(income) as accounts_count
+from Accounts
+where income>50000;
+
+
+Q3 : https://www.codingninjas.com/codestudio/problems/employee-bonus_2111949?topList=top-100-sql-problems&leftPanelTab=0
+
+ANS :
+
+select e.name,bonus
+from Employee e left join Bonus b
+on e.empId = b.empId 
+where b.bonus < 1000 or b.bonus is null;
