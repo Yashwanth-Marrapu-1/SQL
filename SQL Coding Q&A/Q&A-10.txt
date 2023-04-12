@@ -7,7 +7,7 @@ from friends
 group by activity
 order by count(activity) desc 
 OFFSET 1 ROWS
-FETCH NEXT((SELECT count(distinct activity) from friends)-2) ROWS ONLY;
+FETCH NEXT((select count(distinct activity) from friends)-2) ROWS ONLY;
 
 
 Q2 : https://www.codingninjas.com/codestudio/problems/apples-oranges_2122060?topList=top-100-sql-problems&leftPanelTab=0
