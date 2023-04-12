@@ -1,0 +1,23 @@
+Q&A-1 : https://www.codingninjas.com/codestudio/problems/activity-participants_2188772?topList=top-100-sql-problems&leftPanelTab=0
+
+ANS :
+
+select activity
+from friends
+group by activity
+order by count(activity) desc 
+OFFSET 1 ROWS
+FETCH NEXT((SELECT count(distinct activity) from friends)-2) ROWS ONLY;
+
+
+Q&A-2 : https://www.codingninjas.com/codestudio/problems/apples-oranges_2122060?topList=top-100-sql-problems&leftPanelTab=0
+
+ANS :
+
+select sale_date, 
+sum(case
+when fruit = 'oranges' then -sold_num
+else sold_num end) as diff 
+from sales
+group by sale_date
+order by sale_date
