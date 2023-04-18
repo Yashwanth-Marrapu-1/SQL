@@ -1,0 +1,29 @@
+Q1 : https://www.codingninjas.com/codestudio/problems/customers-who-bought-all-products_2121435?topList=top-100-sql-problems&leftPanelTab=0
+
+ANS :
+
+select customer_id
+from customer
+group by customer_id
+having count(distinct product_key)=
+                        (select count(product_key) 
+                                    from product);
+
+
+Q2 : https://www.codingninjas.com/codestudio/problems/students-report-by-geography_2181184?topList=top-100-sql-problems&leftPanelTab=0
+
+ANS : 
+
+select max(America) as America,
+max(Asia) as Asia, max(Europe) as Europe
+from 
+(select (case when continent = 'America' then name end) as America,
+(case when continent = 'Europe' then name end) as Europe,
+(case when continent = 'Asia' then name end) as Asia,
+ROW_NUMBER() over (partition by continent order by name) as rownumber
+from student) as temp
+group by rownumber;
+
+
+
+
