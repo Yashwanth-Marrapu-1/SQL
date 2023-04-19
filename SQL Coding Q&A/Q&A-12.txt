@@ -1,0 +1,20 @@
+Q1 : https://www.codingninjas.com/codestudio/problems/consecutive-available-seats_2111953?topList=top-100-sql-problems&leftPanelTab=0
+
+ANS :
+
+select c2.seat_id
+from cinema c1
+join cinema c2
+on c1.seat_id = c2.seat_id - 1
+and c2.free = true;
+
+
+Q2 : https://www.codingninjas.com/codestudio/problems/top-travellers_2117112?topList=top-100-sql-problems&leftPanelTab=0
+
+ANS :
+
+select u.name,sum(coalesce(r.distance,0)) as travelled_distance
+from users u left join rides r
+on u.id = r.user_id
+group by u.name
+order by travelled_distance desc,u.name asc;
