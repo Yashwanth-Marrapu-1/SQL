@@ -1,0 +1,23 @@
+Q1 : https://www.codingninjas.com/codestudio/problems/find-the-team-size_2117109?topList=top-100-sql-problems&leftPanelTab=0
+
+ANS :
+
+select e1.employee_id,count(e1.employee_id) as team_size
+from Employee e1 join Employee e2
+on e1.team_id = e2.team_id
+group by e1.employee_id
+order by e1.employee_id asc;
+
+
+Q2 : https://www.codingninjas.com/codestudio/problems/winning-candidate_2119331?topList=top-100-sql-problems&leftPanelTab=0
+
+ANS :
+ 
+select Name as "Name"
+from Candidate
+where id in
+(select CandidateId
+from vote
+group by CandidateId
+order by count(id) desc
+limit 1);
