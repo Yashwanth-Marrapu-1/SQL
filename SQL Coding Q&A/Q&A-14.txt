@@ -1,0 +1,23 @@
+Q1 : https://www.codingninjas.com/codestudio/problems/count-student-number-in-departments_2119332?topList=top-100-sql-problems&leftPanelTab=0
+
+ANS :
+
+select d.dept_name,count(s.student_name) as student_number
+from student s right join department d 
+on s.dept_id = d.dept_id
+group by dept_name
+order by student_number desc;
+
+
+Q2 : https://www.codingninjas.com/codestudio/problems/new-users-daily-count_2121436?topList=top-100-sql-problems&leftPanelTab=0
+
+ANS : 
+
+select activity_date as login_date,
+count(distinct user_id) as user_count 
+from traffic
+where user_id not in
+(select user_id from traffic 
+where TO_DATE('2019-06-30','YYYY-MM-DD')-activity_date>90)
+and activity='login'
+group by activity_date;
