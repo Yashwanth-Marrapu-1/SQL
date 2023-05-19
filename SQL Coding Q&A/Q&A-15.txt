@@ -1,0 +1,21 @@
+Q1 : https://www.codingninjas.com/codestudio/problems/delete-duplicate-emails_2111947?topList=top-100-sql-problems&leftPanelTab=0
+
+ANS :
+
+
+Delete from person where Id in 
+(Select max(Id) from Person 
+group by Email Having count(Id)>1);
+
+select * from Person
+
+
+Q2 : https://www.codingninjas.com/codestudio/problems/second-degree-follower_2119337?topList=top-100-sql-problems&leftPanelTab=0
+
+ANS :
+
+select followee as follower, count(followee) as num
+from follow
+where followee in
+(select follower from follow)
+group by followee;
